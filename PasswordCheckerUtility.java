@@ -1,8 +1,12 @@
+// David Abili CMSC Assignment 1 
+// 2/8/2022
+
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.ArrayList;
 public class PasswordCheckerUtility {
 
+	//compare password method
 	public static void comparePasswords(String pass, String passCom) throws UnmatchedException {
 	
 		if(!pass.equalsIgnoreCase(passCom)) 
@@ -10,7 +14,7 @@ public class PasswordCheckerUtility {
 		}
 	
 	
-	
+	// compare password with a return statment method
 	public static boolean comparePasswordsWithReturn(String pass, String passCom) {
 		boolean res = false;
 		if(pass.equals(passCom)) {
@@ -20,6 +24,7 @@ public class PasswordCheckerUtility {
 	
 	}
 	
+	// is valid length method
 	public static boolean isValidLength(String pass) throws LengthException {
 		boolean res = false;
 		if (pass.length() > 6)
@@ -29,6 +34,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 
+	// has upper method
 	public static boolean hasUpperAlpha(String pass) throws NoUpperAlphaException{
 		boolean res = false;
 	
@@ -43,6 +49,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 	
+	// has lower method
 	public static boolean hasLowerAlpha(String pass) throws NoLowerAlphaException{
 		boolean res = false;
 	
@@ -57,6 +64,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 	
+	// has digit method
 	public static boolean hasDigit(String pass) throws NoDigitException{
 		boolean res = false;
 	
@@ -71,6 +79,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 	
+	// has special character method
 	public static boolean hasSpecialCharacter(String pass) throws NoSpecialCharacterException{
 		boolean res = false;
 	
@@ -85,6 +94,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 	
+	// has no special character exception method
 	public static boolean NoSpecialCharacterException(String pass) throws NoSpecialCharacterException{
 		boolean res = true;
 	
@@ -99,6 +109,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 	
+	// no same character in sequence method
 	public static boolean noSameCharInSequence(String pass) throws InvalidSequenceException{
 	
 
@@ -117,7 +128,7 @@ public class PasswordCheckerUtility {
 	}
 	
 	
-	
+	//valid password method
 	public static boolean isValidPassword(String pass) throws LengthException, NoUpperAlphaException, NoLowerAlphaException, NoDigitException, NoSpecialCharacterException, InvalidSequenceException  {
 		boolean res = false;
 		if(hasDigit(pass) && noSameCharInSequence(pass) && hasSpecialCharacter(pass) && hasLowerAlpha(pass) && hasUpperAlpha(pass) && isValidPassword(pass)) {
@@ -126,6 +137,7 @@ public class PasswordCheckerUtility {
 	     return res;
 	}
 	
+	// get invalid password method
 	public static ArrayList<String> getInvalidPasswords(ArrayList<String> pass) {
 	
 		ArrayList<String> passw =  new ArrayList<String>();
@@ -136,6 +148,7 @@ public class PasswordCheckerUtility {
 		return passw;
 	}
 	
+	// is weak password method
 	public static boolean isWeakPassword(String pass) throws WeakPasswordException {
 		boolean res = false;
 		if (!(pass.length() >= 6 && pass.length() <= 9))
@@ -145,6 +158,7 @@ public class PasswordCheckerUtility {
 		return res;
 	}
 
+	// has between six and 9 char method
 	public static boolean hasBetweenSixAndNineChars(String pass) throws WeakPasswordException {
 		boolean res = false;
 		if ((pass.length() >= 6 && pass.length() <= 9))
